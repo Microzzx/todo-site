@@ -24,7 +24,13 @@ const Card = ({
   };
 
   return (
-    <div className="flex flex-col w-[400px] p-10 max-[827px]:w-[240px] bg-[#1E293B] hover:bg-[#475366] rounded-lg animate-slideleft relative">
+    <div
+      className={`flex flex-col w-[400px] p-10 max-[827px]:w-[240px] ${
+        success
+          ? "bg-[#64ff83a1] hover:bg-[#87c294]"
+          : "bg-[#1E293B] hover:bg-[#475366]"
+      } rounded-lg animate-slideleft relative`}
+    >
       {success ? (
         <>
           <div className="flex w-full gap-6 justify-end max-[827px]:justify-center">
