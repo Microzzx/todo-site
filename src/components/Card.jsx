@@ -24,18 +24,18 @@ const Card = ({
   };
 
   return (
-    <div className="flex w-[400px] p-10 bg-[#1E293B] hover:bg-[#475366] rounded-lg animate-slideleft relative">
+    <div className="flex flex-col w-[400px] p-10 max-[827px]:w-[240px] bg-[#1E293B] hover:bg-[#475366] rounded-lg animate-slideleft relative">
       {success ? (
         <>
-          <div className="flex w-[80%] absolute gap-6 justify-end ">
+          <div className="flex w-full gap-6 justify-end max-[827px]:justify-center">
             <BsFillTrash3Fill
               color="white"
-              size={24}
+              size={22}
               className="delete-icon"
               onClick={() => handleDelete(id)}
             />
           </div>
-          <div className="flex w-full h-44 justify-center items-center">
+          <div className="flex h-40 justify-center items-center">
             <h1 className="text-2xl text-white font-bold line-through truncate">
               {title}
             </h1>
@@ -43,7 +43,7 @@ const Card = ({
         </>
       ) : !editMode ? (
         <>
-          <div className="flex w-[80%] absolute gap-6 justify-end ">
+          <div className="flex w-full gap-6 justify-end max-[827px]:justify-center">
             <FaCheck
               color="white"
               size={24}
@@ -63,13 +63,13 @@ const Card = ({
               onClick={() => handleDelete(id)}
             />
           </div>
-          <div className="flex w-full h-44 justify-center items-center">
+          <div className="flex h-40 justify-center items-center">
             <h1 className="text-2xl text-white font-bold  truncate">{title}</h1>
           </div>
         </>
       ) : (
         <>
-          <div className="flex w-[80%] absolute  justify-end ">
+          <div className="flex w-full gap-6 justify-end max-[827px]:justify-center">
             <FaXmark
               color="white"
               size={24}
@@ -77,7 +77,7 @@ const Card = ({
               onClick={() => setEditMode(false)}
             />
           </div>
-          <div className="flex w-full h-44 justify-center items-center">
+          <div className="flex h-40 justify-center items-center">
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
