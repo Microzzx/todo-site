@@ -35,6 +35,17 @@ function App() {
     }
   };
 
+  const CheckTodo = (id) => {
+    const indexToCheck = todo.findIndex((item) => item.id === id);
+    if (indexToCheck !== -1) {
+      const updatedTodo = [...todo];
+      updatedTodo[indexToCheck].success = true;
+      setTodo(updatedTodo);
+    } else {
+      console.log("error, ID not found.");
+    }
+  };
+
   const DeleteTodo = (todoId) => {
     setTodo(todo.filter((item) => item.id !== todoId));
   };
@@ -64,6 +75,7 @@ function App() {
               success={list.success}
               handleDelete={DeleteTodo}
               handleEdit={EditTodo}
+              handleCheck={CheckTodo}
             />
           );
         })}

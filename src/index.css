@@ -30,6 +30,10 @@
   background-color: #6d7889;
 }
 
+.check-icon:hover {
+  fill: greenyellow;
+}
+
 .edit-icon:hover {
   fill: yellow;
 }
