@@ -24,6 +24,21 @@ function App() {
     setTodo([...todo, newTodo]);
   };
 
+  const EditTodo = (id, newTitle) => {
+    const indexToEdit = todo.findIndex((item) => item.id === id);
+    if (indexToEdit !== -1) {
+      const updatedTodo = [...todo];
+      updatedTodo[indexToEdit].title = newTitle;
+      setTodo(updatedTodo);
+    } else {
+      console.log("error, ID not found.");
+    }
+  };
+
+  const DeleteTodo = (todoId) => {
+    setTodo(todo.filter((item) => item.id !== todoId));
+  };
+
   return (
     <div className="flex flex-col h-screen overflow-hidden  justify-center items-center bg-[#0F172A] relative">
       <div className="flex flex-col absolute top-[8%] w-full justify-center items-center space-y-6 p-10 bg-gradient-to-r from-[#6366F1] to-[#A855F7]">
@@ -44,9 +59,11 @@ function App() {
           return (
             <Card
               key={list.id}
-              index={i + 1}
-              name={list.title}
+              id={list.id}
+              title={list.title}
               success={list.success}
+              handleDelete={DeleteTodo}
+              handleEdit={EditTodo}
             />
           );
         })}

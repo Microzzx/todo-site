@@ -37,3 +37,11 @@
 .delete-icon:hover {
   fill: red;
 }
+
+* {
+  user-select: none;
+}
+
+*:focus {
+  outline: none;
+}
